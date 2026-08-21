@@ -8,7 +8,7 @@
 | `Affidea sub-brand rules_19 March(1).pdf` | 19 martie 2026 | material de lucru pentru regulile de sub-brand | indexat, necanonic |
 | `Affidea Brand Guidelines v1.1.1.pdf` | iunie 2015 | referință istorică | arhivă; regulile nu sunt amestecate cu v1.6 |
 
-PDF-urile originale nu sunt publicate în primul PR al portalului. Ele trebuie adăugate ulterior într-un storage aprobat sau prin Git LFS, cu control de acces și versiuni.
+PDF-urile originale sunt păstrate în [00_Brand_Guidelines](https://drive.google.com/drive/folders/1YYcUr7iC9jdk-DnGBQX8a_W0ePALq7dD). Google Drive este storage-ul master; GitHub păstrează aplicația și variantele web necesare build-ului.
 
 ## Asset-uri furnizate
 
@@ -19,6 +19,13 @@ PDF-urile originale nu sunt publicate în primul PR al portalului. Ele trebuie a
 | Clinicile Affidea | `logoAffidea_[Clinicile]_up-01.png` | PNG transparent web | fundalul alb a fost eliminat |
 | Clinicile Affidea | `logoAffidea_[Clinicile]_up-03.png` | PNG web pe Affidea Blue | variantă pentru fundal colorat |
 | Biomed Scan | `BiomedSCan.pdf` | SVG web + PDF sursă | lockup furnizat, tratat ca integrated/acquisition |
+
+Foldere master:
+
+- [Affidea Parent](https://drive.google.com/drive/folders/1c34Y5uo7vwM1xo_S7vaSpB7rLdHIN8Sh)
+- [Clinicile Affidea](https://drive.google.com/drive/folders/1eW1pWhc7mX18SiIqL3Xna7wQbHnKW82N)
+- [Biomed Scan](https://drive.google.com/drive/folders/1T7_AC21TEK567A4cH4JrHSoccNvPyPzq)
+- [Web App Assets](https://drive.google.com/drive/folders/1Su-fnm39f6MmqstEl4xGhGAtfdFch2CJ)
 
 ## Observații de calitate
 

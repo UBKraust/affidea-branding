@@ -22,11 +22,12 @@ Apoi deschide `http://localhost:4173`.
 
 ## Sursa regulilor
 
-Documentul canonic este `Affidea Brand Guidelines v1.6` (aprilie 2026). Dacă portalul și PDF-ul aprobat diferă, PDF-ul are prioritate. Inventarul complet al materialelor primite este în `docs/source-inventory.md`.
+Documentul canonic este `Affidea Brand Guidelines v1.6` (aprilie 2026). Dacă portalul și PDF-ul aprobat diferă, PDF-ul are prioritate. Fișierele master sunt păstrate în [folderul Affidea din Google Drive](https://drive.google.com/drive/folders/16hA1bCXCEQxRtWbNWC6apAZDPH7fW8sE), iar inventarul este în `docs/source-inventory.md`.
 
 ## Convenții asset-uri
 
-- `public/assets/logos/source/` — fișiere pentru producție și arhivă;
+- Google Drive — fișierele master pentru producție și arhivă;
+- `public/assets/logos/source/` — doar sursele mici necesare build-ului;
 - `public/assets/logos/web/` — variante optimizate pentru interfețe și preview;
 - `docs/` — inventarul documentelor active și al materialelor de lucru;
 - fișierele legacy nu se marchează automat drept aprobate.

@@ -17,7 +17,7 @@ const assets = [
     status: "Provided artwork",
     description: "Logo orizontal pentru aplicațiile Affidea la nivel de grup și țară.",
     preview: "public/assets/logos/web/affidea-parent.jpeg",
-    source: "public/assets/logos/source/affidea-parent.jpeg",
+    source: "https://drive.google.com/file/d/1N7sm9f5GUoC7mAr86Fv6XG1eqe0kPfuJ/view",
     web: "public/assets/logos/web/affidea-parent.jpeg",
   },
   {
@@ -27,7 +27,7 @@ const assets = [
     status: "Web PNG",
     description: "Lockup local pentru fundal alb sau foarte deschis.",
     preview: "public/assets/logos/web/affidea-clinicile-blue.png",
-    source: "public/assets/logos/source/affidea-clinicile-blue.png",
+    source: "https://drive.google.com/file/d/1Dr9IOGc0F0GbyFcTDlxzi70FSxFYT1yn/view",
     web: "public/assets/logos/web/affidea-clinicile-blue.png",
   },
   {
@@ -37,7 +37,7 @@ const assets = [
     status: "Web PNG",
     description: "Lockup alb pe Affidea Blue; folosește artwork-ul complet, fără recolorare.",
     preview: "public/assets/logos/web/affidea-clinicile-white-on-blue.png",
-    source: "public/assets/logos/source/affidea-clinicile-white-on-blue.png",
+    source: "https://drive.google.com/file/d/1rLVYpeWvdzNem_xWeUQRO_JtF3CkJz9S/view",
     web: "public/assets/logos/web/affidea-clinicile-white-on-blue.png",
     previewClass: "blue",
   },
@@ -48,7 +48,7 @@ const assets = [
     status: "SVG + EPS",
     description: "Artwork vectorial pentru producție, semnalistică și exporturi high-resolution.",
     preview: "public/assets/logos/web/affidea-clinicile.svg",
-    source: "public/assets/logos/web/affidea-clinicile.svg",
+    source: "https://drive.google.com/file/d/1E-g9ilqnX-OGOZJ_b7X0Q9HJhivpaXsy/view",
     web: "public/assets/logos/web/affidea-clinicile.svg",
   },
   {
@@ -58,7 +58,7 @@ const assets = [
     status: "SVG + PDF",
     description: "Lockup tranzitoriu Affidea + Biomed Scan, păstrat ca asset furnizat.",
     preview: "public/assets/logos/web/biomed-scan.svg",
-    source: "public/assets/logos/source/biomed-scan.pdf",
+    source: "https://drive.google.com/file/d/1x4PvznR6PD9cbdLXh7gfWYQv9X3NTXDf/view",
     web: "public/assets/logos/web/biomed-scan.svg",
   },
 ];
@@ -122,7 +122,7 @@ function renderAssets() {
         <h3>${asset.title}</h3>
         <p>${asset.description}</p>
         <div class="asset-actions">
-          <a class="download" href="${asset.source}" download>Source</a>
+          <a class="download" href="${asset.source}" target="_blank" rel="noreferrer">Source · Drive</a>
           <a class="download alt" href="${asset.web}" download>Web</a>
         </div>
       </div>

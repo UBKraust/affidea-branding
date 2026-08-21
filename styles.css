@@ -144,9 +144,10 @@ main { min-width: 0; }
 .empty-state { padding: 56px; text-align: center; color: #777; border: 1px dashed var(--grey); border-radius: 12px; }
 
 .document-list { display: grid; gap: 12px; }
-.document-list > div { display: grid; grid-template-columns: 54px 1fr auto; gap: 17px; align-items: center; padding: 17px; border: 1px solid var(--line); border-radius: 12px; background: white; }
+.document-list a { display: grid; grid-template-columns: 54px 1fr auto; gap: 17px; align-items: center; padding: 17px; border: 1px solid var(--line); border-radius: 12px; background: white; text-decoration: none; }
+.document-list a:hover { border-color: var(--blue); }
 .file-icon { width: 52px; height: 52px; display: grid; place-items: center; border-radius: 9px; background: rgba(65,143,222,.12); color: var(--blue-dark); font-size: 11px; font-weight: 700; }
-.document-list > div > span:nth-child(2) { display: grid; gap: 5px; }
+.document-list a span:nth-child(2) { display: grid; gap: 5px; }
 .document-list small { color: #858c92; }
 .document-list b { color: var(--blue-dark); font-size: 12px; }
 
@@ -197,7 +198,7 @@ footer { max-width: 1600px; margin: 0 auto; min-height: 90px; padding: 30px 40px
   .principle-grid article, .principle-grid article:not(:first-child) { padding: 22px 0; min-height: auto; border-right: 0; }
   .principle-grid h3 { margin-top: 24px; }
   .table-row { grid-template-columns: 1fr; }
-  .document-list > div { grid-template-columns: 52px 1fr; }
+  .document-list a { grid-template-columns: 52px 1fr; }
   .document-list b { grid-column: 2; }
 }
 
