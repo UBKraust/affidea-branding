@@ -1,0 +1,195 @@
+<!doctype html>
+<html lang="ro">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#418FDE" />
+    <meta
+      name="description"
+      content="Portal intern pentru regulile de brand și asset-urile Affidea România."
+    />
+    <title>Affidea Brand Portal</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="app.js" defer></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#content">Sari la conținut</a>
+
+    <header class="topbar">
+      <a class="brand" href="#overview" aria-label="Affidea Brand Portal">
+        <img src="public/assets/logos/web/affidea-parent.jpeg" alt="Affidea" />
+        <span></span>
+        <strong>Brand portal</strong>
+      </a>
+      <div class="topbar-actions">
+        <span class="status"><i></i> Guidelines 2026</span>
+        <button class="icon-button" id="menuButton" type="button" aria-label="Deschide meniul" aria-expanded="false">Meniu</button>
+      </div>
+    </header>
+
+    <div class="shell">
+      <aside class="sidebar" id="sidebar" aria-label="Navigație principală">
+        <nav>
+          <p class="eyebrow">Foundation</p>
+          <a class="nav-link active" href="#overview">Overview</a>
+          <a class="nav-link" href="#principles">Principii</a>
+          <a class="nav-link" href="#logo">Logo</a>
+          <a class="nav-link" href="#colour">Culori</a>
+          <a class="nav-link" href="#typography">Tipografie</a>
+
+          <p class="eyebrow">Architecture</p>
+          <a class="nav-link" href="#subbrands">Sub-branduri</a>
+          <a class="nav-link" href="#governance">Aprobări</a>
+
+          <p class="eyebrow">Library</p>
+          <a class="nav-link" href="#assets">Asset-uri</a>
+          <a class="nav-link" href="#documents">Documentație</a>
+        </nav>
+        <div class="sidebar-note">
+          <span>Versiune canonică</span>
+          <strong>Affidea Guidelines v1.6</strong>
+          <small>Aprilie 2026</small>
+        </div>
+      </aside>
+
+      <main id="content">
+        <section class="hero" id="overview">
+          <div class="hero-copy">
+            <span class="pill">Single source of truth</span>
+            <h1>Un sistem de brand.<br /><em>Clar, coerent, scalabil.</em></h1>
+            <p>
+              Reguli operaționale și asset-uri aprobate pentru Affidea România,
+              brandurile clinice, achizițiile și parteneriatele sale.
+            </p>
+            <div class="hero-actions">
+              <a class="button primary" href="#assets">Deschide biblioteca</a>
+              <a class="button secondary" href="#logo">Vezi regulile esențiale</a>
+            </div>
+          </div>
+          <div class="hero-art" aria-hidden="true">
+            <span class="ribbon ribbon-a"></span>
+            <span class="ribbon ribbon-b"></span>
+            <span class="ribbon ribbon-c"></span>
+            <div class="hero-mark">a</div>
+          </div>
+        </section>
+
+        <section class="section" id="principles">
+          <div class="section-heading">
+            <div><span class="kicker">01 · Brand foundation</span><h2>Principiile sistemului</h2></div>
+            <p>Affidea rămâne ancora în toate aplicațiile. Flexibilitatea este controlată, nu decorativă.</p>
+          </div>
+          <div class="principle-grid">
+            <article><b>01</b><h3>Consecvență întâi</h3><p>Albastrul Affidea și elementele de bază apar consecvent în toate piețele.</p></article>
+            <article><b>02</b><h3>Claritate pentru pacienți</h3><p>Serviciile trebuie înțelese și navigate rapid la fiecare punct de contact.</p></article>
+            <article><b>03</b><h3>Flexibilitate în sistem</h3><p>Serviciile specializate și achizițiile se diferențiază fără a rupe identitatea.</p></article>
+            <article><b>04</b><h3>Affidea este ancora</h3><p>Brandul părinte păstrează legătura vizibilă între toate sub-brandurile.</p></article>
+            <article><b>05</b><h3>Proiectat pentru scalare</h3><p>Noile servicii pot fi adăugate fără fragmentarea ecosistemului.</p></article>
+          </div>
+        </section>
+
+        <section class="section split" id="logo">
+          <div class="section-heading full">
+            <div><span class="kicker">02 · Logo</span><h2>Identitatea principală</h2></div>
+            <p>Folosește întotdeauna artwork-ul aprobat. Nu reconstrui și nu modifica proporțiile.</p>
+          </div>
+          <div class="logo-stage checkerboard">
+            <img src="public/assets/logos/web/affidea-parent.jpeg" alt="Logo Affidea principal" />
+          </div>
+          <div class="spec-list">
+            <div><span>Clear space</span><strong>1× înălțimea wordmark-ului</strong></div>
+            <div><span>Minim digital</span><strong>30 px înălțime</strong></div>
+            <div><span>Minim print</span><strong>10 mm înălțime</strong></div>
+            <div><span>Fundal deschis</span><strong>Versiunea full colour</strong></div>
+            <div><span>Fundal închis / foto</span><strong>Versiunea albă</strong></div>
+          </div>
+          <div class="rule-banner full">
+            <strong>Regula de bază</strong>
+            <span>Logo principal pentru primul contact; varianta secundară numai când spațiul sau layout-ul o cer.</span>
+          </div>
+        </section>
+
+        <section class="section dark" id="colour">
+          <div class="section-heading">
+            <div><span class="kicker">03 · Colour system</span><h2>Paleta oficială</h2></div>
+            <p>Affidea Blue este dominant. Culorile suport creează ierarhie, CTA-uri și structură.</p>
+          </div>
+          <div class="swatches" id="swatches"></div>
+          <p class="microcopy">Selectează orice culoare pentru a copia codul HEX.</p>
+        </section>
+
+        <section class="section" id="typography">
+          <div class="section-heading">
+            <div><span class="kicker">04 · Typography</span><h2>Harmonia Sans Pro</h2></div>
+            <p>Familia oficială Affidea. Nu se personalizează în afara logo-urilor specializate aprobate.</p>
+          </div>
+          <div class="type-specimen">
+            <div class="type-meta"><span>Headline 01</span><span>Semibold · tracking -25</span></div>
+            <div class="display-type">Grijă medicală, fără compromis.</div>
+            <div class="type-columns">
+              <div><span>Headline 02 · Bold</span><h3>Încredere prin claritate.</h3></div>
+              <div><span>Body · Regular</span><p>Construim o experiență coerentă, accesibilă și ușor de recunoscut pentru fiecare pacient.</p></div>
+              <div><span>Intro · Semibold</span><p class="intro">Un sistem comun pentru servicii, piețe și parteneriate.</p></div>
+            </div>
+          </div>
+        </section>
+
+        <section class="section" id="subbrands">
+          <div class="section-heading">
+            <div><span class="kicker">05 · Architecture</span><h2>Arhitectura de brand</h2></div>
+            <p>Tipul sub-brandului determină numele, lockup-ul, paleta și nivelul de aprobare.</p>
+          </div>
+          <div class="architecture-table" role="table" aria-label="Arhitectura sub-brandurilor">
+            <div class="table-row table-head" role="row"><span>Tip</span><span>Identitate</span><span>Regulă de culoare</span><span>Exemple</span></div>
+            <div class="table-row" role="row"><strong><i class="dot clinical"></i>Clinical service</strong><span>Affidea + descriptor</span><span>Doar paleta Affidea</span><span>Clinics, Hospitals, Diagnostics</span></div>
+            <div class="table-row" role="row"><strong><i class="dot specialised"></i>Specialised service</strong><span>Affidea + nume specializat</span><span>Affidea Blue + accent aprobat</span><span>neuraCare, brustCare</span></div>
+            <div class="table-row" role="row"><strong><i class="dot acquisition"></i>Integrated · acquisition</strong><span>Affidea + brand tranzitoriu</span><span>Affidea + culoare legacy temporară</span><span>Heka, LabPoint</span></div>
+            <div class="table-row" role="row"><strong><i class="dot partnership"></i>Integrated · partnership</strong><span>Co-branding echilibrat</span><span>Fiecare brand își păstrează paleta</span><span>Parteneriate aprobate</span></div>
+          </div>
+          <div class="clinical-feature">
+            <div><span class="pill light">Clinical service</span><h3>Descriptorul explică serviciul.<br />Affidea conduce identitatea.</h3><p>Descriptorul folosește Harmonia Sans SemiBold, se aliniază la dreapta lettermark-ului și se micșorează pentru denumiri mai lungi.</p></div>
+            <div class="clinical-logo"><img src="public/assets/logos/web/affidea-clinicile-blue.png" alt="Logo Clinicile Affidea" /></div>
+          </div>
+        </section>
+
+        <section class="section tinted" id="assets">
+          <div class="section-heading">
+            <div><span class="kicker">06 · Asset library</span><h2>Fișiere aprobate</h2></div>
+            <p>Folosește sursa vectorială pentru producție și varianta web pentru interfețe sau preview.</p>
+          </div>
+          <div class="asset-toolbar">
+            <label class="search"><span>Caută</span><input id="assetSearch" type="search" placeholder="Logo, Clinicile, Biomed Scan…" /></label>
+            <div class="filters" id="filters" aria-label="Filtre asset-uri"></div>
+          </div>
+          <div class="asset-grid" id="assetGrid"></div>
+          <div class="empty-state" id="emptyState" hidden>Nu există asset-uri pentru filtrul ales.</div>
+        </section>
+
+        <section class="section" id="documents">
+          <div class="section-heading">
+            <div><span class="kicker">07 · Source documents</span><h2>Documentație</h2></div>
+            <p>Ghidul v1.6 este referința canonică. Materialele de lucru nu suprascriu regulile aprobate.</p>
+          </div>
+          <div class="document-list">
+            <div><span class="file-icon">PDF</span><span><strong>Affidea Brand Guidelines v1.6</strong><small>60 pagini · aprilie 2026 · document canonic indexat</small></span><b>Canonic</b></div>
+            <div><span class="file-icon">PDF</span><span><strong>Affidea sub-brand rules</strong><small>9 pagini · martie 2026 · material de lucru indexat</small></span><b>Reference</b></div>
+          </div>
+        </section>
+
+        <section class="section governance" id="governance">
+          <div><span class="kicker">08 · Governance</span><h2>Când este obligatorie aprobarea globală</h2></div>
+          <ul>
+            <li>Crearea unui sub-brand sau descriptor clinic nou.</li>
+            <li>Orice font personalizat pentru un serviciu specializat.</li>
+            <li>Introducerea unei culori accent noi în afara paletei Affidea.</li>
+            <li>Păstrarea unui nume, logo sau a unei culori legacy după achiziție.</li>
+            <li>Orice lockup de parteneriat sau abatere de la artwork-ul furnizat.</li>
+          </ul>
+        </section>
+      </main>
+    </div>
+
+    <footer><span>Affidea Brand Portal · MVP 2026</span><span>Regulile sursă au prioritate în caz de neconcordanță.</span></footer>
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  </body>
+</html>

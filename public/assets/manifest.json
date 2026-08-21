@@ -1,0 +1,11 @@
+{
+  "schemaVersion": 1,
+  "canonicalGuideline": "Affidea Brand Guidelines v1.6 — April 2026",
+  "assets": [
+    { "id": "affidea-parent", "family": "parent", "status": "provided", "source": "logos/source/affidea-parent.jpeg", "web": "logos/web/affidea-parent.jpeg" },
+    { "id": "affidea-clinicile-blue", "family": "clinical", "status": "provided", "source": "logos/source/affidea-clinicile-blue.png", "web": "logos/web/affidea-clinicile-blue.png" },
+    { "id": "affidea-clinicile-white", "family": "clinical", "status": "provided", "source": "logos/source/affidea-clinicile-white-on-blue.png", "web": "logos/web/affidea-clinicile-white-on-blue.png" },
+    { "id": "affidea-clinicile-vector", "family": "clinical", "status": "web-converted", "source": "logos/web/affidea-clinicile.svg", "web": "logos/web/affidea-clinicile.svg" },
+    { "id": "affidea-biomed-scan", "family": "integrated-acquisition", "status": "provided", "source": "logos/source/biomed-scan.pdf", "web": "logos/web/biomed-scan.svg" }
+  ]
+}
