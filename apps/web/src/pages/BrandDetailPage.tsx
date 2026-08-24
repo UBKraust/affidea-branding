@@ -5,6 +5,7 @@ import { BRAND_LOGOS } from './BrandsPage';
 import { getBrandbooks } from '../fixtures/brandResources';
 import { BRAND_DRIVE_FOLDER_BY_SLUG, BRAND_FAMILIES, getBrandFamily } from '../fixtures/brandTaxonomy';
 import { getBrandLandingContent } from '../fixtures/brandLandingContent';
+import { ClinicileAffideaBrandbookPage } from './ClinicileAffideaBrandbookPage';
 
 const sections = [
   ['overview', 'Overview'], ['architecture', 'Arhitectură'], ['logo', 'Logo'], ['colours', 'Culori'],
@@ -19,6 +20,10 @@ export const BrandDetailPage: React.FC = () => {
 
   if (!brand) {
     return <div className="aff-empty-state"><h1>Brand indisponibil</h1><button className="aff-btn aff-btn-primary" onClick={() => navigate('/brands')}>Înapoi la director</button></div>;
+  }
+
+  if (brand.slug === 'clinicile-affidea') {
+    return <ClinicileAffideaBrandbookPage />;
   }
 
   const logoSrc = BRAND_LOGOS[brand.slug];

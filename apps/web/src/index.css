@@ -423,6 +423,160 @@ dd { margin: 0; font-size: 12px; font-weight: 700; text-transform: capitalize; }
 .aff-next-brand strong { font-size: clamp(38px,5vw,72px); font-weight: 300; letter-spacing: -.035em; }
 .aff-next-brand i { color: var(--brand-accent); font-size: 50px; font-style: normal; }
 
+/* Clinicile Affidea — full digital brandbook */
+.aff-clinics-book { --clinic-blue: #418fde; --clinic-dark: #2d69b3; --clinic-light: #98bfe6; --clinic-ink: #353a40; color: var(--clinic-ink); }
+.aff-clinics-hero { min-height: 650px; display: grid; grid-template-columns: minmax(0,1.15fr) minmax(380px,.85fr); overflow: hidden; border-radius: 24px 24px 0 0; background: var(--clinic-blue); color: #fff; }
+.aff-clinics-hero-copy { position: relative; display: grid; align-content: end; padding: 76px 64px; }
+.aff-clinics-hero-copy::before { content: ''; position: absolute; top: 48px; left: 64px; width: 64px; height: 6px; background: #fff; }
+.aff-clinics-eyebrow { color: rgba(255,255,255,.72); font-size: 10px; font-weight: 800; letter-spacing: .13em; text-transform: uppercase; }
+.aff-clinics-hero h1 { max-width: 790px; margin: 34px 0 25px; font-size: clamp(54px,7vw,104px); font-weight: 300; letter-spacing: -.055em; line-height: .92; }
+.aff-clinics-hero-copy > p { max-width: 660px; margin: 0; color: rgba(255,255,255,.78); font-size: 18px; line-height: 1.65; }
+.aff-clinics-hero-identity { display: grid; grid-template-rows: auto 1fr auto; padding: 34px; border-left: 1px solid rgba(255,255,255,.22); background: #fff; color: var(--clinic-ink); }
+.aff-clinics-hero-identity > small { justify-self: end; color: #77828c; font-size: 9px; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; }
+.aff-clinics-hero-identity > div { display: grid; place-items: center; margin: 30px 0; }
+.aff-clinics-hero-identity img { width: 86%; max-height: 190px; object-fit: contain; }
+.aff-clinics-hero-identity > p { display: grid; gap: 5px; margin: 0; padding-top: 22px; border-top: 1px solid var(--line); }
+.aff-clinics-hero-identity b { color: var(--clinic-blue); font-size: 10px; letter-spacing: .08em; text-transform: uppercase; }
+.aff-clinics-hero-identity span { color: var(--muted); font-size: 11px; line-height: 1.5; }
+.aff-clinics-toc { position: sticky; top: 72px; z-index: 20; overflow-x: auto; display: flex; gap: 24px; padding: 17px 26px; border: 1px solid var(--line); background: rgba(255,255,255,.96); box-shadow: 0 12px 30px rgba(23,50,75,.06); backdrop-filter: blur(12px); }
+.aff-clinics-toc a { display: grid; gap: 3px; min-width: max-content; color: var(--clinic-ink); font-size: 10px; font-weight: 700; text-decoration: none; }
+.aff-clinics-toc span { color: var(--clinic-blue); font-size: 8px; letter-spacing: .1em; }
+.aff-clinics-section { scroll-margin-top: 130px; display: grid; gap: 40px; padding: 94px 40px; border-bottom: 1px solid var(--line); }
+.aff-clinics-section-title { max-width: 920px; }
+.aff-clinics-section-title > span { color: var(--clinic-blue); font-size: 10px; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; }
+.aff-clinics-section-title h2 { margin: 16px 0 15px; color: var(--night); font-size: clamp(40px,5.2vw,72px); font-weight: 300; letter-spacing: -.045em; line-height: .99; }
+.aff-clinics-section-title p { max-width: 780px; margin: 0; color: var(--muted); font-size: 17px; line-height: 1.65; }
+.aff-clinics-intro-grid { display: grid; grid-template-columns: minmax(0,1.15fr) minmax(340px,.85fr); gap: 70px; align-items: start; }
+.aff-clinics-intro-grid > p { margin: 0; color: var(--night); font-size: clamp(25px,3.1vw,42px); font-weight: 300; letter-spacing: -.025em; line-height: 1.25; }
+.aff-clinics-intro-grid dl { display: grid; grid-template-columns: 1fr 1fr; margin: 0; border-top: 1px solid var(--line); border-left: 1px solid var(--line); }
+.aff-clinics-intro-grid dl div { min-height: 95px; display: grid; align-content: center; gap: 6px; padding: 18px; border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.aff-clinics-intro-grid dt { color: var(--muted); font-size: 8px; letter-spacing: .1em; text-transform: uppercase; }
+.aff-clinics-intro-grid dd { margin: 0; color: var(--night); font-size: 13px; font-weight: 700; }
+.aff-clinics-principles { display: grid; grid-template-columns: repeat(5,1fr); border-top: 1px solid var(--line); border-left: 1px solid var(--line); }
+.aff-clinics-principles article { min-height: 240px; padding: 24px; border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.aff-clinics-principles span { color: var(--clinic-blue); font-size: 10px; font-weight: 800; }
+.aff-clinics-principles h3 { margin: 58px 0 10px; color: var(--night); font-size: 19px; }
+.aff-clinics-principles p { margin: 0; color: var(--muted); font-size: 12px; line-height: 1.6; }
+.aff-clinics-architecture { background: #f7fafc; }
+.aff-clinics-architecture-flow { display: grid; grid-template-columns: 1fr 50px 1fr 50px 1fr; align-items: stretch; }
+.aff-clinics-architecture-flow article { min-height: 250px; display: grid; align-content: space-between; padding: 28px; border: 1px solid var(--line); background: #fff; }
+.aff-clinics-architecture-flow article.active { border-color: var(--clinic-blue); background: var(--clinic-blue); color: #fff; }
+.aff-clinics-architecture-flow > i { align-self: center; color: var(--clinic-blue); font-size: 28px; font-style: normal; text-align: center; }
+.aff-clinics-architecture-flow > i:first-of-type::before { content: '+'; }
+.aff-clinics-architecture-flow > i:last-of-type::before { content: '='; }
+.aff-clinics-architecture-flow article > span { color: var(--muted); font-size: 9px; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; }
+.aff-clinics-architecture-flow article.active > span { color: rgba(255,255,255,.65); }
+.aff-clinics-architecture-flow img { width: 82%; max-height: 95px; justify-self: center; object-fit: contain; }
+.aff-clinics-architecture-flow strong { align-self: center; font-size: clamp(42px,5vw,72px); font-weight: 300; letter-spacing: -.04em; }
+.aff-clinics-architecture-flow p { margin: 0; color: var(--muted); font-size: 11px; line-height: 1.55; }
+.aff-clinics-architecture-flow article.active p { color: rgba(255,255,255,.75); }
+.aff-clinics-context-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.aff-clinics-context-grid > div { padding: 34px; border-top: 4px solid var(--clinic-dark); background: #fff; }
+.aff-clinics-context-grid > div:last-child { border-color: var(--clinic-blue); }
+.aff-clinics-context-grid span { color: var(--clinic-blue); font-size: 9px; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; }
+.aff-clinics-context-grid h3 { margin: 34px 0 12px; color: var(--night); font-size: 31px; font-weight: 400; }
+.aff-clinics-context-grid p { color: var(--muted); font-size: 13px; line-height: 1.6; }
+.aff-clinics-logo-stage { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.aff-clinics-logo-stage > div { min-height: 430px; display: grid; grid-template-rows: auto 1fr auto; padding: 26px; }
+.aff-clinics-logo-stage span { color: var(--muted); font-size: 9px; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; }
+.aff-clinics-logo-primary { border: 1px solid var(--line); background: #fff; }
+.aff-clinics-logo-primary img { width: 72%; max-height: 165px; place-self: center; object-fit: contain; }
+.aff-clinics-logo-protected { background: var(--night); }
+.aff-clinics-logo-protected > span, .aff-clinics-logo-protected > small { color: rgba(255,255,255,.56); }
+.aff-clinics-logo-protected > div { width: 76%; display: grid; place-items: center; place-self: center; padding: 45px; background: #fff; }
+.aff-clinics-logo-protected img { width: 100%; max-height: 145px; object-fit: contain; }
+.aff-clinics-logo-protected small { font-size: 9px; line-height: 1.45; }
+.aff-clinics-construction { background: #f7fafc; }
+.aff-clinics-construction-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.aff-clinics-construction-grid > div { min-height: 410px; display: grid; grid-template-rows: auto 1fr auto; padding: 30px; border: 1px solid var(--line); background: #fff; }
+.aff-clinics-construction-grid > div > span { color: var(--clinic-blue); font-size: 9px; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; }
+.aff-clinics-construction-grid p { margin: 0; color: var(--muted); font-size: 12px; line-height: 1.6; }
+.aff-clinics-clearspace > div { position: relative; width: 70%; display: grid; place-items: center; place-self: center; padding: 42px; border: 1px dashed var(--clinic-blue); }
+.aff-clinics-clearspace > div::before, .aff-clinics-clearspace > div::after { content: ''; position: absolute; background: rgba(65,143,222,.25); }
+.aff-clinics-clearspace > div::before { left: -20px; right: -20px; top: 50%; height: 1px; }
+.aff-clinics-clearspace > div::after { top: -20px; bottom: -20px; left: 50%; width: 1px; }
+.aff-clinics-clearspace i { position: absolute; top: -20px; left: -18px; color: var(--clinic-blue); font-size: 10px; font-style: normal; font-weight: 800; }
+.aff-clinics-clearspace img { position: relative; z-index: 1; width: 100%; }
+.aff-clinics-ratio > div { position: relative; align-self: center; min-height: 160px; display: grid; place-items: center; border-left: 44px solid var(--clinic-blue); background: rgba(65,143,222,.08); }
+.aff-clinics-ratio b { position: absolute; left: -29px; color: #fff; }
+.aff-clinics-ratio em { position: absolute; bottom: -22px; left: -44px; color: var(--clinic-blue); font-size: 10px; font-style: normal; }
+.aff-clinics-ratio strong { color: var(--clinic-blue); font-size: clamp(44px,5vw,76px); font-weight: 600; letter-spacing: -.04em; }
+.aff-clinics-minimums { display: grid; grid-template-columns: repeat(4,1fr); border-top: 1px solid var(--line); border-left: 1px solid var(--line); }
+.aff-clinics-minimums > div { padding: 24px; border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); background: #fff; }
+.aff-clinics-minimums small { color: var(--muted); font-size: 8px; text-transform: uppercase; }
+.aff-clinics-minimums strong { display: block; margin: 20px 0 10px; color: var(--clinic-blue); font-size: 28px; font-weight: 400; }
+.aff-clinics-minimums p { margin: 0; color: var(--muted); font-size: 11px; }
+.aff-clinics-colours { display: grid; grid-template-columns: repeat(4,1fr); gap: 13px; }
+.aff-clinics-colours button { overflow: hidden; display: grid; padding: 0; border: 1px solid var(--line); background: #fff; text-align: left; cursor: pointer; }
+.aff-clinics-colours button > span { min-height: 190px; padding: 15px; }
+.aff-clinics-colours button > span i { color: rgba(0,31,55,.46); font-size: 9px; font-style: normal; font-weight: 800; }
+.aff-clinics-colours button.is-dark > span i { color: rgba(255,255,255,.72); }
+.aff-clinics-colours button > div { display: grid; gap: 5px; padding: 18px; }
+.aff-clinics-colours small { color: var(--muted); font-size: 8px; letter-spacing: .08em; text-transform: uppercase; }
+.aff-clinics-colours h3 { margin: 5px 0 10px; color: var(--night); font-size: 18px; }
+.aff-clinics-colours b { color: var(--clinic-blue); font-size: 16px; }
+.aff-clinics-colours p { color: var(--muted); font-size: 9px; line-height: 1.6; }
+.aff-clinics-colours em { margin-top: 10px; color: var(--clinic-blue); font-size: 8px; font-style: normal; font-weight: 800; text-transform: uppercase; }
+.aff-clinics-colour-rules { display: grid; grid-template-columns: repeat(4,1fr); background: var(--night); }
+.aff-clinics-colour-rules p { min-height: 120px; margin: 0; padding: 24px; border-right: 1px solid rgba(255,255,255,.12); color: rgba(255,255,255,.67); font-size: 11px; line-height: 1.6; }
+.aff-clinics-colour-rules b { display: block; margin-bottom: 20px; color: #fff; font-size: 12px; }
+.aff-clinics-type-stage { min-height: 520px; display: grid; grid-template-columns: 1.15fr .85fr; background: var(--night); color: #fff; }
+.aff-clinics-type-stage > div { display: grid; align-content: space-between; padding: 50px; }
+.aff-clinics-type-stage > div:first-child { border-right: 1px solid rgba(255,255,255,.14); background: linear-gradient(145deg, rgba(65,143,222,.35), transparent); }
+.aff-clinics-type-stage small { color: var(--clinic-light); font-size: 9px; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; }
+.aff-clinics-type-stage strong { font-size: clamp(65px,8vw,118px); font-weight: 300; letter-spacing: -.06em; line-height: .86; }
+.aff-clinics-type-stage > div:first-child span { color: rgba(255,255,255,.5); font-size: 20px; letter-spacing: .12em; }
+.aff-clinics-type-stage h3 { margin: 90px 0 20px; font-size: 36px; font-weight: 400; }
+.aff-clinics-type-stage p { color: rgba(255,255,255,.66); font-size: 16px; line-height: 1.7; }
+.aff-clinics-type-stage ul { margin: 20px 0 0; padding: 0; list-style: none; color: rgba(255,255,255,.55); font-size: 10px; line-height: 1.9; }
+.aff-clinics-layout-demo { display: grid; grid-template-columns: 1.1fr .9fr; min-height: 590px; }
+.aff-clinics-poster { position: relative; overflow: hidden; display: grid; align-content: space-between; padding: 50px; background: var(--clinic-blue); color: #fff; }
+.aff-clinics-poster::after { content: ''; position: absolute; right: -180px; bottom: -220px; width: 460px; height: 460px; border: 90px solid rgba(255,255,255,.15); border-radius: 50%; }
+.aff-clinics-poster img { width: 225px; padding: 14px; background: #fff; }
+.aff-clinics-poster > span { position: relative; z-index: 1; font-size: clamp(42px,5.5vw,76px); font-weight: 300; letter-spacing: -.045em; line-height: .98; }
+.aff-clinics-poster > span b { font-weight: 600; }
+.aff-clinics-poster button { position: relative; z-index: 1; justify-self: start; padding: 13px 18px; border: 0; border-radius: 4px; background: #04b64f; color: #fff; font-weight: 700; }
+.aff-clinics-layout-rules { display: grid; grid-template-rows: repeat(4,1fr); border-top: 1px solid var(--line); }
+.aff-clinics-layout-rules p { display: grid; grid-template-columns: 38px 130px 1fr; align-items: center; gap: 15px; margin: 0; padding: 25px; border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); color: var(--muted); font-size: 11px; line-height: 1.5; }
+.aff-clinics-layout-rules span { color: var(--clinic-blue); font-size: 9px; font-weight: 800; }
+.aff-clinics-layout-rules b { color: var(--night); font-size: 12px; }
+.aff-clinics-voice { display: grid; grid-template-columns: repeat(4,1fr); border-top: 1px solid var(--line); border-left: 1px solid var(--line); }
+.aff-clinics-voice article { min-height: 220px; padding: 25px; border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.aff-clinics-voice span { display: block; margin-top: 55px; color: var(--night); font-size: 25px; }
+.aff-clinics-voice span::before { content: ''; display: block; width: 30px; height: 3px; margin-bottom: 18px; background: var(--clinic-blue); }
+.aff-clinics-voice p { color: var(--muted); font-size: 12px; line-height: 1.6; }
+.aff-clinics-section blockquote { margin: 0; padding: 60px; background: var(--clinic-blue); color: #fff; }
+.aff-clinics-section blockquote small { color: rgba(255,255,255,.65); font-size: 9px; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; }
+.aff-clinics-section blockquote p { margin: 45px 0 0; font-size: clamp(42px,6.2vw,88px); font-weight: 300; letter-spacing: -.045em; line-height: 1; }
+.aff-clinics-applications { display: grid; grid-template-columns: repeat(3,1fr); gap: 16px; }
+.aff-clinics-applications article { padding: 20px; border: 1px solid var(--line); }
+.aff-clinics-applications article > span { color: var(--clinic-blue); font-size: 9px; font-weight: 800; }
+.aff-clinics-app-preview { height: 230px; display: grid; align-content: end; gap: 9px; margin: 18px 0 22px; padding: 26px; background: #edf5fb; }
+.aff-clinics-app-preview i { display: block; width: 72%; height: 12px; background: var(--clinic-blue); }
+.aff-clinics-app-preview i:first-child { width: 42%; height: 56px; border-radius: 50%; }
+.aff-clinics-app-preview i:last-child { width: 52%; opacity: .4; }
+.aff-clinics-applications article:nth-child(even) .aff-clinics-app-preview { background: var(--clinic-blue); }
+.aff-clinics-applications article:nth-child(even) .aff-clinics-app-preview i { background: #fff; }
+.aff-clinics-applications h3 { color: var(--night); font-size: 19px; }
+.aff-clinics-applications p { color: var(--muted); font-size: 11px; line-height: 1.6; }
+.aff-clinics-governance { background: #f7fafc; }
+.aff-clinics-source-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 16px; }
+.aff-clinics-source-grid a { min-height: 280px; display: grid; align-content: space-between; padding: 30px; border: 1px solid var(--line); background: #fff; color: inherit; text-decoration: none; }
+.aff-clinics-source-grid a:hover { border-color: var(--clinic-blue); }
+.aff-clinics-source-grid span { color: var(--clinic-blue); font-size: 9px; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; }
+.aff-clinics-source-grid h3 { margin: 55px 0 10px; color: var(--night); font-size: 25px; font-weight: 400; }
+.aff-clinics-source-grid p { color: var(--muted); font-size: 11px; line-height: 1.6; }
+.aff-clinics-source-grid b { color: var(--clinic-blue); font-size: 10px; text-transform: uppercase; }
+.aff-clinics-governance-note { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; padding: 42px; border-left: 5px solid var(--clinic-blue); background: var(--night); color: #fff; }
+.aff-clinics-governance-note span { color: var(--clinic-light); font-size: 9px; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; }
+.aff-clinics-governance-note h3 { margin: 25px 0 0; font-size: 29px; font-weight: 400; line-height: 1.2; }
+.aff-clinics-governance-note p { margin: 0; color: rgba(255,255,255,.64); font-size: 12px; line-height: 1.7; }
+.aff-clinics-footer { display: flex; justify-content: space-between; align-items: center; padding: 40px; background: #fff; }
+.aff-clinics-footer > div { display: flex; align-items: center; gap: 18px; }
+.aff-clinics-footer img { width: 145px; }
+.aff-clinics-footer span { color: var(--muted); font-size: 9px; text-transform: uppercase; }
+.aff-clinics-footer a { color: var(--clinic-blue); font-size: 10px; font-weight: 800; text-decoration: none; text-transform: uppercase; }
+
 @media (prefers-reduced-motion: no-preference) {
   .aff-brand-card, .aff-featured-brand, .aff-asset-card { transition: transform .18s ease, border-color .18s ease, box-shadow .18s ease; }
 }
@@ -455,6 +609,21 @@ dd { margin: 0; font-size: 12px; font-weight: 700; text-transform: capitalize; }
   .aff-brand-quote { padding: 38px 28px; }
   .aff-resource-layout .aff-guideline-card { grid-template-columns: 110px 1fr; }
   .aff-resource-layout .aff-guideline-card img { width: 110px; height: 100px; }
+  .aff-clinics-hero { min-height: 0; grid-template-columns: 1fr; }
+  .aff-clinics-hero-copy { padding: 72px 28px 48px; }
+  .aff-clinics-hero-copy::before { left: 28px; }
+  .aff-clinics-hero-identity { min-height: 420px; border-top: 1px solid var(--line); border-left: 0; }
+  .aff-clinics-toc { top: 64px; }
+  .aff-clinics-section { padding: 68px 20px; }
+  .aff-clinics-intro-grid, .aff-clinics-type-stage, .aff-clinics-layout-demo, .aff-clinics-governance-note { grid-template-columns: 1fr; gap: 30px; }
+  .aff-clinics-principles { grid-template-columns: 1fr 1fr; }
+  .aff-clinics-architecture-flow { grid-template-columns: 1fr; gap: 10px; }
+  .aff-clinics-architecture-flow > i { min-height: 30px; }
+  .aff-clinics-context-grid, .aff-clinics-logo-stage, .aff-clinics-construction-grid { grid-template-columns: 1fr; }
+  .aff-clinics-minimums, .aff-clinics-colours, .aff-clinics-colour-rules, .aff-clinics-voice { grid-template-columns: 1fr 1fr; }
+  .aff-clinics-type-stage > div { min-height: 430px; padding: 35px; }
+  .aff-clinics-type-stage > div:first-child { border-right: 0; border-bottom: 1px solid rgba(255,255,255,.14); }
+  .aff-clinics-applications, .aff-clinics-source-grid { grid-template-columns: 1fr 1fr; }
 }
 
 @media (max-width: 560px) {
@@ -469,4 +638,11 @@ dd { margin: 0; font-size: 12px; font-weight: 700; text-transform: capitalize; }
   .aff-guideline-card img, .aff-resource-layout .aff-guideline-card img { width: 100%; height: 150px; }
   .aff-download-list a { grid-template-columns: 44px minmax(0,1fr); }
   .aff-download-list a b { grid-column: 2; }
+  .aff-clinics-intro-grid dl, .aff-clinics-principles, .aff-clinics-minimums, .aff-clinics-colours, .aff-clinics-colour-rules, .aff-clinics-voice, .aff-clinics-applications, .aff-clinics-source-grid { grid-template-columns: 1fr; }
+  .aff-clinics-layout-rules p { grid-template-columns: 30px 1fr; }
+  .aff-clinics-layout-rules p b { grid-column: 2; }
+  .aff-clinics-poster { min-height: 500px; padding: 30px; }
+  .aff-clinics-governance-note { padding: 28px; }
+  .aff-clinics-footer { align-items: flex-start; gap: 25px; }
+  .aff-clinics-footer > div { display: grid; }
 }
