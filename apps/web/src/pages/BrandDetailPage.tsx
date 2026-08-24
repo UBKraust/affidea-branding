@@ -4,6 +4,7 @@ import { MOCK_BRANDS } from '../fixtures/mockData';
 import { Badge } from '@affidea/ui';
 import { BRAND_LOGOS } from './BrandsPage';
 import { getBrandbooks } from '../fixtures/brandResources';
+import { BRAND_DRIVE_FOLDER_BY_SLUG, BRAND_FAMILIES, getBrandFamily } from '../fixtures/brandTaxonomy';
 
 const sections = ['Overview', 'Logo', 'Culori', 'Tipografie', 'Guidelines', 'Downloads'];
 
@@ -22,6 +23,8 @@ export const BrandDetailPage: React.FC = () => {
   const hasWhiteLogo = brand.slug === 'affidea-kids';
   const brandbooks = getBrandbooks(brand.slug);
   const primaryBrandbook = brandbooks[0];
+  const brandFamily = BRAND_FAMILIES.find(item => item.id === getBrandFamily(brand.slug));
+  const sourceFolder = BRAND_DRIVE_FOLDER_BY_SLUG[brand.slug];
 
   const copyValue = async (value: string) => {
     await navigator.clipboard.writeText(value);
@@ -35,7 +38,7 @@ export const BrandDetailPage: React.FC = () => {
 
       <header className="aff-brandbook-hero">
         <div className="aff-brandbook-identity">
-          <span className="aff-eyebrow light">{brand.category} • {brand.architecture_type.replaceAll('_', ' ')}</span>
+          <span className="aff-eyebrow light">{brandFamily?.label_ro} • {brand.category}</span>
           <div className={`aff-brandbook-logo-white ${hasWhiteLogo ? 'on-blue' : 'on-white'}`}>
             {hasWhiteLogo ? <img src="/brand-assets/logos/affidea-kids-white.svg" alt={`Logo alb ${brand.name_ro}`} /> : <img src={logoSrc} alt={`Logo ${brand.name_ro}`} />}
           </div>
@@ -43,12 +46,13 @@ export const BrandDetailPage: React.FC = () => {
           <div className="aff-brandbook-meta">
             <span>Actualizat {brand.last_updated}</span>
             <span>{brand.asset_count} asset-uri</span>
-            <span>Sursă: Google Drive</span>
+            <span>Sursă verificată: Google Drive</span>
           </div>
         </div>
         <div className="aff-brandbook-actions">
           <Badge status="canonical">Identitate aprobată</Badge>
           <a className="aff-btn aff-btn-light" href={logoSrc} download>Descarcă logo {logoExtension}</a>
+          <a className="aff-btn aff-btn-ghost-light" href={sourceFolder} target="_blank" rel="noreferrer">Folder sursă Drive</a>
           <a className="aff-btn aff-btn-ghost-light" href={primaryBrandbook.file} target="_blank" rel="noreferrer">Manual de brand</a>
         </div>
       </header>
@@ -67,6 +71,7 @@ export const BrandDetailPage: React.FC = () => {
           <p>Folosește întotdeauna fișierele aprobate din această bibliotecă. Nu reconstrui logoul din text, nu modifica proporțiile și nu aplica efecte sau culori neaprobate.</p>
           <dl>
             <div><dt>Arhitectură</dt><dd>{brand.architecture_type.replaceAll('_', ' ')}</dd></div>
+            <div><dt>Familie operațională</dt><dd>{brandFamily?.label_ro}</dd></div>
             <div><dt>Status</dt><dd>{brand.is_active ? 'Activ și aprobat' : 'În verificare'}</dd></div>
             <div><dt>Pachet</dt><dd>{brand.asset_count} fișiere disponibile</dd></div>
           </dl>
