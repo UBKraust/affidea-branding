@@ -3,6 +3,12 @@
     "target": "ES2022",
     "module": "ESNext",
     "moduleResolution": "Bundler",
+    "baseUrl": ".",
+    "paths": {
+      "@affidea/contracts": ["packages/contracts/src/index.ts"],
+      "@affidea/design-tokens": ["packages/design-tokens/src/index.ts"],
+      "@affidea/ui": ["packages/ui/src/index.ts"]
+    },
     "lib": ["ES2022", "DOM", "DOM.Iterable"],
     "strict": true,
     "esModuleInterop": true,
