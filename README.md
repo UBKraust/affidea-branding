@@ -1,8 +1,35 @@
-# Affidea Brand Hub - implementation documentation
+# Affidea Brand Hub
 
-Final specification for the internal Affidea brand asset portal at `https://brand.affidea.ro`.
+React and Cloudflare monorepo for the internal Affidea brand asset portal planned for `https://brand.affidea.ro`.
 
-This package is intended to be copied into a new VS Code repository and used as the source of truth for Gemini. Start by giving Gemini `GEMINI.md`, then ask it to execute `IMPLEMENTATION_CHECKLIST.md` phase by phase.
+The repository contains the working Brand Hub interface, shared design tokens and contracts, a Worker API skeleton, bilingual content, Affidea logo previews, governance documentation, and deployment examples. Google Drive remains the canonical source for approved guidelines and original production assets.
+
+## Run locally
+
+Requirements: Node.js 18+ and pnpm 8+.
+
+```bash
+pnpm install --frozen-lockfile
+pnpm typecheck
+pnpm test
+pnpm build
+pnpm --filter @affidea/web dev
+```
+
+The web app runs on `http://localhost:5173`. The Worker can be started separately with `pnpm --filter @affidea/worker dev`.
+
+## Repository structure
+
+- `apps/web` — React, TypeScript, Vite, routes and curated web assets.
+- `apps/worker` — Hono/Cloudflare Worker API skeleton.
+- `packages/design-tokens` — canonical Affidea colours and typography stacks.
+- `packages/contracts` — shared API and data validation schemas.
+- `packages/ui` — shared React components.
+- `docs` — product, architecture, security, Drive sync and governance specifications.
+- `audit` — source audit and approved UI reference screenshots.
+- `apps/web/public/brand-assets/logos` — single web-facing logo library.
+
+Canonical Drive library: https://drive.google.com/drive/folders/16hA1bCXCEQxRtWbNWC6apAZDPH7fW8sE
 
 ## Locked decisions
 
@@ -64,6 +91,6 @@ Supporting implementation files:
 - `prompts/MASTER_PROMPT.md` - first prompt to use in VS Code.
 - `prompts/ITERATION_PROMPTS.md` - follow-up prompts and review gates.
 
-## Non-negotiable delivery rule
+## Asset governance
 
-Gemini must implement one phase at a time, run the relevant tests, report changed files and wait for review before starting the next phase. It must not invent Drive credentials, Cloudflare IDs, approved brands, administrator emails, or missing brand assets.
+Do not commit raw Drive exports, duplicate working files, or large guideline PDFs. Published logo previews belong in `apps/web/public/brand-assets/logos`; original AI, EPS, print PDF and archive files stay in Drive. New or replaced assets must be approved before they are marked canonical in the application data.
