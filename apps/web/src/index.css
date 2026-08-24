@@ -124,6 +124,17 @@ button:focus-visible, a:focus-visible, input:focus-visible, textarea:focus-visib
 .aff-filter-tabs button.active, .aff-filter-chip.active { border-color: var(--blue-dark); background: var(--blue-dark); color: #fff; }
 .aff-filter-bar { display: grid; gap: 14px; }
 .aff-brands-grid { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 18px; }
+.aff-brand-groups { display: grid; gap: 42px; }
+.aff-brand-group { display: grid; gap: 18px; scroll-margin-top: 88px; }
+.aff-brand-group-header { display: grid; grid-template-columns: 44px minmax(0,1fr) auto; gap: 15px; align-items: center; padding: 0 0 14px; border-bottom: 1px solid var(--line); }
+.aff-brand-group-header > span:nth-child(2) { display: grid; gap: 4px; }
+.aff-brand-group-header strong { color: var(--night); font-size: 22px; }
+.aff-brand-group-header small { color: var(--muted); font-size: 13px; }
+.aff-brand-group-header em { padding: 6px 10px; border-radius: 999px; background: var(--blue-pale); color: var(--blue-dark); font-size: 11px; font-style: normal; font-weight: 700; }
+.aff-brand-group-index { color: var(--blue); font-size: 13px; font-weight: 800; letter-spacing: .12em; }
+.aff-brand-group-hospitals .aff-brand-group-header { border-bottom-color: #b8c9de; }
+.aff-brand-group-clinics .aff-brand-group-header { border-bottom-color: var(--blue-light); }
+.aff-brand-group-archive { opacity: .78; }
 .aff-brand-card { min-height: 370px; padding: 0; overflow: hidden; display: flex; flex-direction: column; border: 1px solid var(--line); border-radius: 14px; background: #fff; color: var(--ink); text-align: left; cursor: pointer; }
 .aff-brand-card-topline { display: flex; align-items: center; justify-content: space-between; padding: 16px 18px 0; }
 .aff-architecture { color: #73808b; font-size: 9px; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; }
@@ -290,4 +301,11 @@ dd { margin: 0; font-size: 12px; font-weight: 700; text-transform: capitalize; }
 
 @media (prefers-reduced-motion: no-preference) {
   .aff-brand-card, .aff-featured-brand, .aff-asset-card { transition: transform .18s ease, border-color .18s ease, box-shadow .18s ease; }
+}
+
+@media (max-width: 900px) {
+  .aff-directory-tools { grid-template-columns: 1fr; }
+  .aff-brands-grid { grid-template-columns: 1fr; }
+  .aff-brand-group-header { grid-template-columns: 34px minmax(0,1fr); }
+  .aff-brand-group-header em { grid-column: 2; justify-self: start; }
 }
