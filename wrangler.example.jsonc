@@ -1,0 +1,39 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "affidea-brand-hub",
+  "main": "apps/worker/src/index.ts",
+  "compatibility_date": "REPLACE_WITH_DEPLOYMENT_DATE",
+  "workers_dev": false,
+  "routes": [
+    { "pattern": "brand.affidea.ro/*", "zone_name": "affidea.ro" }
+  ],
+  "assets": {
+    "directory": "apps/web/dist",
+    "binding": "ASSETS",
+    "not_found_handling": "single-page-application"
+  },
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "affidea-brand-hub-prod",
+      "database_id": "REPLACE",
+      "migrations_dir": "migrations"
+    }
+  ],
+  "kv_namespaces": [
+    { "binding": "CACHE", "id": "REPLACE" }
+  ],
+  "r2_buckets": [
+    { "binding": "PRIVATE_ASSETS", "bucket_name": "affidea-brand-hub-private" }
+  ],
+  "triggers": {
+    "crons": ["*/5 * * * *", "17 2 * * *"]
+  },
+  "vars": {
+    "APP_ENV": "production",
+    "APP_BASE_URL": "https://brand.affidea.ro",
+    "DEFAULT_LOCALE": "ro",
+    "GOOGLE_DRIVE_ROOT_FOLDER_ID": "16hA1bCXCEQxRtWbNWC6apAZDPH7fW8sE"
+  }
+}
+
