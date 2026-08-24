@@ -22,6 +22,8 @@ The product groups all 27 brand identities into Corporate, Clinics, Hospitals, S
 
 ## Brandbooks materialized in the web app
 
+All 27 identities now use the shared editorial landing-page structure documented in [`14_BRANDBOOK_LANDING_PAGES.md`](./14_BRANDBOOK_LANDING_PAGES.md). Pages with a dedicated manual lead with that source; all other active identities explicitly inherit the canonical Affidea and sub-brand rules.
+
 | Web resource | Drive file ID | Brand page usage |
 |---|---|---|
 | Affidea Brand Guidelines v1.6 / 2026 | `11Ltz9O7HhrlqMw29zdQMojibzylW5TU_` | Affidea core |
