@@ -12,13 +12,14 @@ export type BrandbookResource = {
 };
 
 export const BRAND_DRIVE_URL = 'https://drive.google.com/drive/folders/16hA1bCXCEQxRtWbNWC6apAZDPH7fW8sE';
+const driveFile = (id: string) => `https://drive.google.com/file/d/${id}/view`;
 
 export const CORE_BRANDBOOK: BrandbookResource = {
   id: 'affidea-core',
   title: 'Affidea Brand Architecture & Branding Guidelines',
   brand: 'Affidea',
   version: 'v1.6 / 2026',
-  file: BRAND_DRIVE_URL,
+  file: driveFile('11Ltz9O7HhrlqMw29zdQMojibzylW5TU_'),
   filename: 'Affidea_Brand_Guidelines_v1.6_2026_CANONICAL.pdf',
   cover: '/brand-assets/affidea-brandbook-cover.png',
   size: '6.2 MB',
@@ -33,7 +34,7 @@ export const BRANDBOOKS: BrandbookResource[] = [
     title: 'Affidea Sub-brand Rules',
     brand: 'Arhitectura de sub-brand',
     version: '2026',
-    file: BRAND_DRIVE_URL,
+    file: driveFile('1NhsCscD-T8ncYShIjcTjtuDh6hB2pj-w'),
     filename: 'affidea-subbrand-rules-2026.pdf',
     cover: '/brand-assets/brandbook-covers/affidea-subbrand-rules-2026.png',
     size: '6.1 MB',
@@ -45,7 +46,7 @@ export const BRANDBOOKS: BrandbookResource[] = [
     title: 'Affidea Kids Brand Guidelines',
     brand: 'Affidea Kids',
     version: '2026',
-    file: BRAND_DRIVE_URL,
+    file: driveFile('1RNUtNzqiYoiYHXNqb1WhCXQAWSa0wzA7'),
     filename: 'affidea-kids-brand-guidelines-2026.pdf',
     cover: '/brand-assets/brandbook-covers/affidea-kids-brand-guidelines-2026.png',
     size: '15 MB',
@@ -57,7 +58,7 @@ export const BRANDBOOKS: BrandbookResource[] = [
     title: 'Affi — Affidea Brandbook',
     brand: 'Affi / Affidea Kids',
     version: '15.05.2025',
-    file: BRAND_DRIVE_URL,
+    file: driveFile('1xIrdF_76y3CEVhFQtQ8YZrfBsJ2iRzOt'),
     filename: 'affi-affidea-brandbook-2025.pdf',
     cover: '/brand-assets/brandbook-covers/affi-affidea-brandbook-2025.png',
     size: '3.7 MB',
@@ -69,7 +70,7 @@ export const BRANDBOOKS: BrandbookResource[] = [
     title: 'FeminaCare Brand Guidelines',
     brand: 'FeminaCare',
     version: 'v1',
-    file: BRAND_DRIVE_URL,
+    file: driveFile('1BlNH8AAnWeafPJD8WZ0JB4PwYVX9AbnJ'),
     filename: 'feminacare-brand-guidelines.pdf',
     cover: '/brand-assets/brandbook-covers/feminacare-brand-guidelines.png',
     size: '3.9 MB',
@@ -81,7 +82,7 @@ export const BRANDBOOKS: BrandbookResource[] = [
     title: 'OncoLink Brandbook — Extended',
     brand: 'OncoLink',
     version: 'Extended',
-    file: BRAND_DRIVE_URL,
+    file: driveFile('1T5kqqdR5R7rvyobGcazHHt_V11oGmzQs'),
     filename: 'oncolink-brandbook-extended.pdf',
     cover: '/brand-assets/brandbook-covers/oncolink-brandbook-extended.png',
     size: '9.3 MB',
@@ -93,7 +94,7 @@ export const BRANDBOOKS: BrandbookResource[] = [
     title: 'MedDirect Brandbook',
     brand: 'MedDirect',
     version: 'Current',
-    file: BRAND_DRIVE_URL,
+    file: driveFile('1xFiIkprX001R_--Ll3awcmWDho0To1ii'),
     filename: 'meddirect-brandbook.pdf',
     cover: '/brand-assets/brandbook-covers/meddirect-brandbook.png',
     size: '9 MB',
@@ -123,6 +124,15 @@ export const BRANDBOOK_IDS_BY_BRAND: Record<string, string[]> = {
   'affidea-hiperdia-corunca': SUBBRAND_DEFAULT,
   'affidea-primorion': SUBBRAND_DEFAULT,
   'affidea-hospitals-metropolitan': SUBBRAND_DEFAULT,
+  'affidea-explora-suceava': SUBBRAND_DEFAULT,
+  'affidea-kids-pediatrie': ['affidea-kids', 'affi', 'subbrand-rules'],
+  'affidea-hospitals-heka': SUBBRAND_DEFAULT,
+  'affidea-hospitals-fundeni': SUBBRAND_DEFAULT,
+  'affidea-hospitals-feminacare': ['feminacare', 'subbrand-rules', 'affidea-core'],
+  'affidea-clinica-sia': SUBBRAND_DEFAULT,
+  'fortius-clinicile-affidea': SUBBRAND_DEFAULT,
+  'feminacare-affidea-kids': ['feminacare', 'affidea-kids', 'affi', 'subbrand-rules'],
+  'affidea-hospitals-armonia': SUBBRAND_DEFAULT,
 };
 
 export const getBrandbooks = (slug: string) => {

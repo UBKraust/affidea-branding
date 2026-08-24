@@ -16,7 +16,13 @@ Verified and recursively reindexed on 2026-08-24 against the two Affidea Google 
 - Logo library: `163aOb9k-O236cVFmTJm7SH3ljHCs73Ky`
 - Brandbook library: `1AdwD2o7PhAzn8VYSr8YljsAdYiG-t2Ol`
 
+## Operational grouping
+
+The product groups all 27 brand identities into Corporate, Clinics, Hospitals, Specialised services, Associated brands, and Archive. The complete GitHub/Drive findings, exact membership, cleanup issues, and canonical-pack recommendation are documented in [`13_LOGO_SOURCE_TAXONOMY_AUDIT.md`](./13_LOGO_SOURCE_TAXONOMY_AUDIT.md).
+
 ## Brandbooks materialized in the web app
+
+All 27 identities now use the shared editorial landing-page structure documented in [`14_BRANDBOOK_LANDING_PAGES.md`](./14_BRANDBOOK_LANDING_PAGES.md). Pages with a dedicated manual lead with that source; all other active identities explicitly inherit the canonical Affidea and sub-brand rules.
 
 | Web resource | Drive file ID | Brand page usage |
 |---|---|---|

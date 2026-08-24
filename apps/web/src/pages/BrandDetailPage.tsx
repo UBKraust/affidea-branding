@@ -1,11 +1,15 @@
 import React, { useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { MOCK_BRANDS } from '../fixtures/mockData';
-import { Badge } from '@affidea/ui';
 import { BRAND_LOGOS } from './BrandsPage';
 import { getBrandbooks } from '../fixtures/brandResources';
+import { BRAND_DRIVE_FOLDER_BY_SLUG, BRAND_FAMILIES, getBrandFamily } from '../fixtures/brandTaxonomy';
+import { getBrandLandingContent } from '../fixtures/brandLandingContent';
 
-const sections = ['Overview', 'Logo', 'Culori', 'Tipografie', 'Guidelines', 'Downloads'];
+const sections = [
+  ['overview', 'Overview'], ['architecture', 'Arhitectură'], ['logo', 'Logo'], ['colours', 'Culori'],
+  ['typography', 'Tipografie'], ['voice', 'Voce'], ['applications', 'Aplicații'], ['resources', 'Resurse'],
+] as const;
 
 export const BrandDetailPage: React.FC = () => {
   const { slug } = useParams<{ slug: string }>();
@@ -19,9 +23,17 @@ export const BrandDetailPage: React.FC = () => {
 
   const logoSrc = BRAND_LOGOS[brand.slug];
   const logoExtension = logoSrc.split('.').pop()?.toUpperCase() ?? 'FIȘIER';
-  const hasWhiteLogo = brand.slug === 'affidea-kids';
+  const whiteLogoSrc = brand.slug === 'affidea-kids' ? '/brand-assets/logos/affidea-kids-white.svg' : null;
   const brandbooks = getBrandbooks(brand.slug);
   const primaryBrandbook = brandbooks[0];
+  const familyId = getBrandFamily(brand.slug);
+  const brandFamily = BRAND_FAMILIES.find(item => item.id === familyId);
+  const sourceFolder = BRAND_DRIVE_FOLDER_BY_SLUG[brand.slug];
+  const content = getBrandLandingContent(brand);
+  const currentIndex = MOCK_BRANDS.findIndex(item => item.slug === brand.slug);
+  const nextBrand = MOCK_BRANDS[(currentIndex + 1) % MOCK_BRANDS.length];
+  const accent = brand.colors[0]?.hex ?? '#418FDE';
+  const printMinimum = familyId === 'clinics' || familyId === 'hospitals' ? '15 mm lockup' : '10 mm înălțime';
 
   const copyValue = async (value: string) => {
     await navigator.clipboard.writeText(value);
@@ -30,106 +42,77 @@ export const BrandDetailPage: React.FC = () => {
   };
 
   return (
-    <div className="aff-brandbook-page">
+    <article className={`aff-brand-landing aff-brand-landing-${familyId}`} style={{ '--brand-accent': accent } as React.CSSProperties}>
       <button className="aff-breadcrumb" onClick={() => navigate('/brands')}>Brand directory / <strong>{brand.name_ro}</strong></button>
 
-      <header className="aff-brandbook-hero">
-        <div className="aff-brandbook-identity">
-          <span className="aff-eyebrow light">{brand.category} • {brand.architecture_type.replaceAll('_', ' ')}</span>
-          <div className={`aff-brandbook-logo-white ${hasWhiteLogo ? 'on-blue' : 'on-white'}`}>
-            {hasWhiteLogo ? <img src="/brand-assets/logos/affidea-kids-white.svg" alt={`Logo alb ${brand.name_ro}`} /> : <img src={logoSrc} alt={`Logo ${brand.name_ro}`} />}
-          </div>
-          <p>{brand.description_ro}</p>
-          <div className="aff-brandbook-meta">
-            <span>Actualizat {brand.last_updated}</span>
-            <span>{brand.asset_count} asset-uri</span>
-            <span>Sursă: Google Drive</span>
-          </div>
+      <header className="aff-brand-landing-hero">
+        <div className="aff-brand-hero-copy">
+          <div className="aff-brand-hero-kicker"><span>{brandFamily?.label_ro}</span><span>{brand.category}</span><span>{brand.is_active ? 'Activ' : 'Referință'}</span></div>
+          <h1>{content.headline}</h1>
+          <p>{content.introduction}</p>
+          <div className="aff-brand-hero-actions"><a className="aff-btn aff-btn-light" href={logoSrc} download>Descarcă logo {logoExtension}</a><a className="aff-btn aff-btn-ghost-light" href={sourceFolder} target="_blank" rel="noreferrer">Deschide sursa Drive</a></div>
         </div>
-        <div className="aff-brandbook-actions">
-          <Badge status="canonical">Identitate aprobată</Badge>
-          <a className="aff-btn aff-btn-light" href={logoSrc} download>Descarcă logo {logoExtension}</a>
-          <a className="aff-btn aff-btn-ghost-light" href={primaryBrandbook.file} target="_blank" rel="noreferrer">Manual de brand</a>
+        <div className="aff-brand-hero-mark">
+          <span className="aff-brand-edition">Brand page / {brand.last_updated.slice(0, 4)}</span>
+          <div className="aff-brand-hero-logo"><img src={logoSrc} alt={`Logo ${brand.name_ro}`} /></div>
+          <div className="aff-brand-source-status"><span className={`aff-source-dot aff-source-${content.sourceMode}`} /><span><strong>{content.sourceMode === 'dedicated' ? 'Brandbook dedicat' : content.sourceMode === 'archive' ? 'Identitate arhivată' : 'Reguli moștenite'}</strong><small>{content.sourceLabel}</small></span></div>
         </div>
       </header>
 
-      <nav className="aff-brandbook-nav" aria-label="Secțiuni brandbook">
-        {sections.map((section, index) => <a key={section} href={`#section-${index + 1}`}>{section}</a>)}
+      <nav className="aff-brandbook-nav aff-brand-landing-nav" aria-label="Cuprins brand page">
+        {sections.map(([id, label], index) => <a key={id} href={`#${id}`}><span>{String(index + 1).padStart(2, '0')}</span>{label}</a>)}
       </nav>
 
-      <section className="aff-brandbook-section aff-overview" id="section-1">
-        <div className="aff-section-number">01</div>
-        <div>
-          <span className="aff-eyebrow">Overview</span>
-          <h2>Un sistem vizual coerent, construit pentru utilizare corectă.</h2>
-        </div>
-        <div className="aff-overview-copy">
-          <p>Folosește întotdeauna fișierele aprobate din această bibliotecă. Nu reconstrui logoul din text, nu modifica proporțiile și nu aplica efecte sau culori neaprobate.</p>
-          <dl>
-            <div><dt>Arhitectură</dt><dd>{brand.architecture_type.replaceAll('_', ' ')}</dd></div>
-            <div><dt>Status</dt><dd>{brand.is_active ? 'Activ și aprobat' : 'În verificare'}</dd></div>
-            <div><dt>Pachet</dt><dd>{brand.asset_count} fișiere disponibile</dd></div>
-          </dl>
-        </div>
+      <section className="aff-landing-section aff-landing-overview" id="overview">
+        <div className="aff-landing-section-heading"><span>01 / Brand essence</span><h2>Un rol clar în ecosistem.</h2></div>
+        <div className="aff-landing-lead"><p>{content.role}</p><div className="aff-landing-facts"><span><small>Arhitectură</small><strong>{brand.architecture_type.replaceAll('_', ' ')}</strong></span><span><small>Familie</small><strong>{brandFamily?.label_ro}</strong></span><span><small>Guvernanță</small><strong>{content.sourceMode === 'dedicated' ? 'Manual dedicat' : content.sourceMode === 'archive' ? 'Arhivă' : 'Manual Affidea'}</strong></span><span><small>Asseturi</small><strong>{brand.asset_count} aprobate</strong></span></div></div>
+        <div className="aff-principles-grid">{content.principles.map((principle, index) => <div className="aff-principle-card" key={principle.title}><span>0{index + 1}</span><strong>{principle.title}</strong><p>{principle.description}</p></div>)}</div>
       </section>
 
-      <section className="aff-brandbook-section" id="section-2">
-        <div className="aff-section-number">02</div>
-        <div className="aff-section-intro"><span className="aff-eyebrow">Logo</span><h2>Marca principală</h2><p>Păstrează spațiul de protecție și folosește varianta potrivită contrastului de fundal.</p></div>
-        <div className="aff-logo-presentation">
-          <div className="aff-logo-stage light"><img src={logoSrc} alt={`Logo principal ${brand.name_ro}`} /></div>
-          {hasWhiteLogo && <div className="aff-logo-stage blue"><img src="/brand-assets/logos/affidea-kids-white.svg" alt={`Logo alb ${brand.name_ro}`} /></div>}
-          <div className="aff-logo-note"><strong>Clear space</strong><span>Nu apropia text, margini sau imagini de zona de protecție a logoului.</span></div>
-        </div>
+      <section className="aff-landing-section" id="architecture">
+        <div className="aff-landing-section-heading"><span>02 / Brand architecture</span><h2>De la Affidea la {brand.name_ro}.</h2><p>Pagina separă poziția strategică a identității de ordinea folderelor și a livrărilor.</p></div>
+        <div className="aff-architecture-path" aria-label={`Poziția ${brand.name_ro} în arhitectură`}><div><span>01</span><small>Parent brand</small><strong>Affidea</strong></div><i aria-hidden="true" /><div><span>02</span><small>Operational family</small><strong>{brandFamily?.label_ro}</strong></div><i aria-hidden="true" /><div className="current"><span>03</span><small>Brand identity</small><strong>{brand.name_ro}</strong></div></div>
+        <div className="aff-source-note"><strong>Sursa regulii</strong><p>{content.sourceLabel}. Fișierele aprobate rămân în folderul canonic Drive; pagina este stratul de prezentare și guvernanță.</p></div>
       </section>
 
-      <section className="aff-brandbook-section" id="section-3">
-        <div className="aff-section-number">03</div>
-        <div className="aff-section-intro"><span className="aff-eyebrow">Colour system</span><h2>Paleta oficială</h2><p>Valorile canonice sunt afișate înaintea excepțiilor aprobate pentru sub-brand.</p></div>
-        <div className="aff-colour-grid">
-          {brand.colors.map(colour => (
-            <button className="aff-colour-card" key={colour.hex} onClick={() => copyValue(colour.hex)}>
-              <span className="aff-colour-sample" style={{ backgroundColor: colour.hex }} />
-              <span className="aff-colour-data">
-                <strong>{colour.name}</strong>
-                <b>{colour.hex}</b>
-                <small>{colour.rgb}</small>
-                <small>{colour.cmyk}</small>
-                {colour.pantone && <small>{colour.pantone}</small>}
-                <em>{copiedValue === colour.hex ? 'Copiat' : 'Click pentru copiere'}</em>
-              </span>
-            </button>
-          ))}
+      <section className="aff-landing-section" id="logo">
+        <div className="aff-landing-section-heading"><span>03 / Logo system</span><h2>Marca, spațiul și contrastul.</h2><p>{content.logoRule}</p></div>
+        <div className="aff-logo-gallery">
+          <div className="aff-logo-canvas aff-logo-canvas-light"><span>Primary / light background</span><div className="aff-clearspace-frame"><i>X</i><img src={logoSrc} alt={`Logo principal ${brand.name_ro}`} /></div></div>
+          <div className="aff-logo-canvas aff-logo-canvas-dark"><span>{whiteLogoSrc ? 'Reversed / dark background' : 'Protected surface / dark context'}</span>{whiteLogoSrc ? <img src={whiteLogoSrc} alt={`Logo alb ${brand.name_ro}`} /> : <div className="aff-protected-logo"><img src={logoSrc} alt={`Logo protejat ${brand.name_ro}`} /></div>}</div>
         </div>
+        <div className="aff-logo-specs"><div><small>Clear space</small><strong>1× wordmark height</strong><p>Păstrează zona liberă pe toate laturile.</p></div><div><small>Digital minimum</small><strong>30 px</strong><p>Nu coborî sub limita de lizibilitate.</p></div><div><small>Print minimum</small><strong>{printMinimum}</strong><p>Verifică reproducerea înainte de producție.</p></div></div>
+        <div className="aff-rule-columns"><div className="aff-rule-list positive"><span>Do</span>{content.dos.map(item => <p key={item}>{item}</p>)}</div><div className="aff-rule-list negative"><span>Don’t</span>{content.donts.map(item => <p key={item}>{item}</p>)}</div></div>
       </section>
 
-      <section className="aff-brandbook-section" id="section-4">
-        <div className="aff-section-number">04</div>
-        <div className="aff-section-intro"><span className="aff-eyebrow">Typography</span><h2>{brand.affi_enabled ? 'Barriecito + Harmonia Sans' : 'Harmonia Sans W1G'}</h2><p>{brand.affi_enabled ? 'Barriecito este rezervat titlurilor și accentelor Affi. Harmonia Sans susține textul curent și informația funcțională.' : 'Typeface-ul principal al sistemului Affidea. Interfața folosește fallback-ul aprobat până la confirmarea drepturilor de web embedding.'}</p></div>
-        <div className="aff-type-stack">
-          {brand.affi_enabled && <div className="aff-type-specimen aff-type-specimen-affi"><span>Headings &amp; Highlights</span><strong>Salut, eu sunt Affi!</strong><p>Barriecito Regular aduce vocea prietenoasă și expresivă a personajului.</p><small>ABCDEFGHIJKLMN OPQRSTUVWXYZ • 123456789</small></div>}
-          <div className="aff-type-specimen"><span>{brand.affi_enabled ? 'Body Text' : 'Semibold / 56'}</span><strong>Precision with care.</strong><p>Diagnostic precis. Comunicare clară. O experiență construită cu grijă pentru oameni.</p><small>Harmonia Sans • Aa Bb Cc Dd Ee Ff Gg Hh 0123456789</small></div>
-        </div>
+      <section className="aff-landing-section" id="colours">
+        <div className="aff-landing-section-heading"><span>04 / Colour system</span><h2>Culoarea ca semnătură.</h2><p>{content.colourRule}</p></div>
+        <div className="aff-landing-colour-grid">{brand.colors.map((colour, index) => <button className="aff-landing-colour" key={`${colour.name}-${colour.hex}`} onClick={() => copyValue(colour.hex)}><span className="aff-landing-colour-swatch" style={{ backgroundColor: colour.hex }}><em>{String(index + 1).padStart(2, '0')}</em></span><span className="aff-landing-colour-copy"><strong>{colour.name}</strong><b>{colour.hex}</b><small>{colour.rgb}</small><small>{colour.cmyk}</small>{colour.pantone && <small>{colour.pantone}</small>}<i>{copiedValue === colour.hex ? 'Copiat' : 'Copiază HEX'}</i></span></button>)}</div>
+        {content.sourceMode === 'inherited' && <div className="aff-validation-note"><strong>Notă de guvernanță</strong><p>Paleta afișată este cea înregistrată pentru această identitate. Valorile locale care nu apar într-un manual dedicat trebuie validate înainte de producție.</p></div>}
       </section>
 
-      <section className="aff-brandbook-section" id="section-5">
-        <div className="aff-section-number">05</div>
-        <div className="aff-section-intro"><span className="aff-eyebrow">Guidelines</span><h2>{brandbooks.length > 1 ? `${brandbooks.length} manuale relevante` : 'Manualul de brand'}</h2><p>Documentele din Drive care guvernează direct această identitate.</p></div>
-        <div className="aff-guideline-grid">
-          {brandbooks.map(book => <a className="aff-guideline-card" key={book.id} href={book.file} target="_blank" rel="noreferrer"><img src={book.cover} alt={`Coperta ${book.title}`} /><span><em>{book.status}</em><strong>{book.title}</strong><small>{book.version} • PDF • {book.size}</small><p>{book.note}</p></span></a>)}
-        </div>
+      <section className="aff-landing-section" id="typography">
+        <div className="aff-landing-section-heading"><span>05 / Typography</span><h2>{brand.affi_enabled ? 'Barriecito + Harmonia Sans' : 'Harmonia Sans W1G'}</h2><p>{content.typographyRule}</p></div>
+        <div className="aff-editorial-type-stage"><div className={brand.affi_enabled ? 'aff-type-display affi' : 'aff-type-display'}><span>{brand.affi_enabled ? 'Display / Barriecito' : 'Display / Harmonia Light'}</span><strong>{brand.affi_enabled ? 'Salut, eu sunt Affi!' : content.headline}</strong></div><div className="aff-type-body"><span>Functional / Harmonia Sans</span><h3>Diagnostic precis. Comunicare clară.</h3><p>ABCDEFGHIJKLMNOPQRSTUVWXYZ<br />abcdefghijklmnopqrstuvwxyz<br />0123456789 — !?%&amp;@</p><small>Light · Regular · Semibold · Bold · Black</small></div></div>
       </section>
 
-      <section className="aff-brandbook-section" id="section-6">
-        <div className="aff-section-number">06</div>
-        <div className="aff-section-intro"><span className="aff-eyebrow">Downloads</span><h2>Fișiere aprobate</h2><p>Descarcă fișierele originale, fără modificarea numelor sau formatelor sursă.</p></div>
-        <div className="aff-download-list">
-          <a href={logoSrc} download><span className="aff-file-format">{logoExtension}</span><span><strong>{logoSrc.split('/').pop()}</strong><small>Logo aprobat • Web și digital</small></span><b>Descarcă</b></a>
-          {hasWhiteLogo && <a href="/brand-assets/logos/affidea-kids-white.svg" download><span className="aff-file-format">SVG</span><span><strong>affidea-kids-white.svg</strong><small>Logo alb • Fundal închis</small></span><b>Descarcă</b></a>}
-          {brandbooks.map(book => <a key={book.id} href={book.file} target="_blank" rel="noreferrer"><span className="aff-file-format">PDF</span><span><strong>{book.title}</strong><small>{book.version} • {book.size} • {book.status.toLowerCase()}</small></span><b>Drive</b></a>)}
-          {brand.affi_enabled && <a href="/brand-assets/fonts/Barriecito-Regular.ttf" download><span className="aff-file-format">TTF</span><span><strong>Barriecito-Regular.ttf</strong><small>Font secundar Affi • Open Font License</small></span><b>Descarcă</b></a>}
-        </div>
+      <section className="aff-landing-section" id="voice">
+        <div className="aff-landing-section-heading"><span>06 / Verbal identity</span><h2>Vocea trebuie să inspire încredere.</h2><p>Principii editoriale pentru copy, UI, social media și comunicarea cu pacientul.</p></div>
+        <div className="aff-voice-grid">{content.voice.map((item, index) => <div key={item.title}><span>{String(index + 1).padStart(2, '0')}</span><strong>{item.title}</strong><p>{item.description}</p></div>)}</div>
+        <blockquote className="aff-brand-quote"><span>Working line</span><p>{content.headline}</p><small>Folosește expresia ca reper de ton; aprobarea unei formulări de campanie se face separat.</small></blockquote>
       </section>
-    </div>
+
+      <section className="aff-landing-section" id="applications">
+        <div className="aff-landing-section-heading"><span>07 / Applications</span><h2>Un sistem, mai multe contexte.</h2><p>Prioritățile diferă în funcție de familia operațională, dar regulile de bază rămân aceleași.</p></div>
+        <div className="aff-application-grid">{content.applications.map(item => <div key={item.index}><span>{item.index}</span><div className="aff-application-preview"><i /><i /><i /></div><strong>{item.title}</strong><p>{item.description}</p></div>)}</div>
+      </section>
+
+      <section className="aff-landing-section" id="resources">
+        <div className="aff-landing-section-heading"><span>08 / Guidelines & downloads</span><h2>Surse canonice, fără ambiguitate.</h2><p>Manualele, logo-ul de preview și folderul cu fișierele originale sunt reunite aici.</p></div>
+        <div className="aff-resource-layout"><div className="aff-guideline-grid">{brandbooks.map(book => <a className="aff-guideline-card" key={book.id} href={book.file} target="_blank" rel="noreferrer"><img src={book.cover} alt={`Coperta ${book.title}`} /><span><em>{book.status}</em><strong>{book.title}</strong><small>{book.version} · PDF · {book.size}</small><p>{book.note}</p></span></a>)}</div><div className="aff-download-list"><a href={logoSrc} download><span className="aff-file-format">{logoExtension}</span><span><strong>{logoSrc.split('/').pop()}</strong><small>Preview aprobat · Web și digital</small></span><b>Descarcă</b></a>{whiteLogoSrc && <a href={whiteLogoSrc} download><span className="aff-file-format">SVG</span><span><strong>{whiteLogoSrc.split('/').pop()}</strong><small>Varianta albă · Fundal închis</small></span><b>Descarcă</b></a>}<a href={sourceFolder} target="_blank" rel="noreferrer"><span className="aff-file-format">DRV</span><span><strong>Folder canonic {brand.name_ro}</strong><small>SVG · PNG · PDF/EPS · surse aprobate</small></span><b>Drive</b></a><a href={primaryBrandbook.file} target="_blank" rel="noreferrer"><span className="aff-file-format">PDF</span><span><strong>{primaryBrandbook.title}</strong><small>{content.sourceLabel}</small></span><b>Deschide</b></a>{brand.affi_enabled && <a href="/brand-assets/fonts/Barriecito-Regular.ttf" download><span className="aff-file-format">TTF</span><span><strong>Barriecito-Regular.ttf</strong><small>Font secundar Affi · Open Font License</small></span><b>Descarcă</b></a>}</div></div>
+      </section>
+
+      <footer className="aff-next-brand"><span>Următoarea identitate</span><button onClick={() => navigate(`/brands/${nextBrand.slug}`)}><strong>{nextBrand.name_ro}</strong><i>→</i></button></footer>
+    </article>
   );
 };
