@@ -1,0 +1,17 @@
+{
+  "notice": "Candidate registry derived from Drive. Presence does not mean active or approved. Review every item in Admin before activation.",
+  "brands": [
+    { "slug": "affidea", "name_ro": "Affidea", "name_en": "Affidea", "architecture_type": "parent", "candidate_drive_folder": "00_Affidea_Parent", "active": false },
+    { "slug": "clinicile-affidea", "name_ro": "Clinicile Affidea", "name_en": "Affidea Clinics", "architecture_type": "clinical", "candidate_drive_folder": "01_Clinicile_Affidea", "active": false },
+    { "slug": "biomed-scan", "name_ro": "Biomed Scan", "name_en": "Biomed Scan", "architecture_type": "acquisition_transitional", "candidate_drive_folder": "02_Biomed_Scan", "active": false },
+    { "slug": "affidea-hospitals", "name_ro": "Affidea Hospitals", "name_en": "Affidea Hospitals", "architecture_type": "clinical", "candidate_drive_folder": "03_Affidea_Hospitals_Master", "active": false },
+    { "slug": "affidea-kids", "name_ro": "Affidea Kids", "name_en": "Affidea Kids", "architecture_type": "specialised", "candidate_drive_folder": "12_Affidea_Kids_Pediatrie", "active": false },
+    { "slug": "affidea-medeuropa", "name_ro": "Affidea MedEuropa", "name_en": "Affidea MedEuropa", "architecture_type": "acquisition_transitional", "candidate_drive_folder": "13_Affidea_MedEuropa", "active": false },
+    { "slug": "affidea-phoenix", "name_ro": "Affidea Phoenix", "name_en": "Affidea Phoenix", "architecture_type": "acquisition_transitional", "candidate_drive_folder": "18_Affidea_Phoenix", "active": false },
+    { "slug": "affidea-medif-otopeni", "name_ro": "Affidea MedIF Otopeni", "name_en": "Affidea MedIF Otopeni", "architecture_type": "acquisition_transitional", "candidate_drive_folder": "20_Affidea_MedIF_Otopeni", "active": false },
+    { "slug": "fortius", "name_ro": "Fortius", "name_en": "Fortius", "architecture_type": "partnership", "candidate_drive_folder": "22_Fortius_Part_of_Affidea_Group", "active": false },
+    { "slug": "oncolink", "name_ro": "OncoLink", "name_en": "OncoLink", "architecture_type": "associated", "candidate_drive_folder": "24_OncoLink_Associated_Brand", "active": false },
+    { "slug": "meddirect", "name_ro": "MedDirect", "name_en": "MedDirect", "architecture_type": "associated", "candidate_drive_folder": "25_MedDirect_Associated_Brand", "active": false }
+  ]
+}
+
