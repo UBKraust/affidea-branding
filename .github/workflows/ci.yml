@@ -20,7 +20,7 @@ jobs:
         with:
           node-version: 22
           cache: pnpm
-      - run: pnpm install --frozen-lockfile
-      - run: pnpm typecheck
-      - run: pnpm test
-      - run: pnpm build
+      - run: pnpm install --frozen-lockfile --config.minimum-release-age=0
+      - run: pnpm --config.minimum-release-age=0 --recursive run typecheck
+      - run: pnpm --config.minimum-release-age=0 --recursive run test
+      - run: pnpm --config.minimum-release-age=0 --recursive run build
